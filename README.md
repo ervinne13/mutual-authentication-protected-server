@@ -2,7 +2,7 @@
 Proof of concept of implementing 2-way SSL Verification in NGINX (thus in any tech stack) demonstrated by using docker.
 The dockerfile installs php and sets up a simple php server.
 
-![Mutual Authentication Visualized](https://cdn-images-1.medium.com/max/800/1*AJPReXxW-hK3d9pSq-Vnow.png)
+![Mutual Authentication Visualized](https://www.nevatech.com/blog/image.axd?picture=%2F2017%2F12%2Fimg01.png)
 
 *Ongoing research and development to implement trust stores*
 
