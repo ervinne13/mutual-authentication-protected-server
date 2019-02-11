@@ -4,6 +4,8 @@ The dockerfile installs php and sets up a simple php server.
 
 ![Mutual Authentication Visualized](https://cdn-images-1.medium.com/max/800/1*AJPReXxW-hK3d9pSq-Vnow.png)
 
+*Ongoing research and development to implement trust stores*
+
 ### Background
 
 We're trying to set up a secure way to create connections between servers. One way is to adapt Mutual Authentication similar to what J2EE servers do, but this time, implement it into something more generic that can support different platforms since NuWorks has PHP and NodeJS based applications. This is useful if you want to limit the users of a service and all the users are known in advanced.
