@@ -1,0 +1,22 @@
+version: "3.2"
+
+services:
+  application:
+    build:
+      context: ./docker-config
+      labels:
+        maintainer: "Ervinne Sodusta <ervinne.sodusta@nuworks.ph>"
+      args:
+        COMPOSE_VOLUME_PATH: /var/www/vhost/app/case-studies/server-to-server-security/server-nginx
+    image: secure-server-nginx:latest
+    container_name: secure-server-nginx
+    volumes:
+      # host:container
+       - /var/www/vhost/app/case-studies/server-to-server-security/server-nginx:/var/www/vhost/app/case-studies/server-to-server-security/server-nginx
+    networks:
+       default:
+          ipv4_address: 192.168.13.4
+networks:
+  default:
+    external:
+      name: docker-bridge-local

@@ -1,0 +1,17 @@
+[ req ]
+prompt              = no
+default_md          = sha1
+distinguished_name  = req_distinguished_name
+
+[ req_distinguished_name ]
+C   = PH
+ST  = NCR
+L   = Pasig City
+O   = NuWorks Interactive Labs Inc.
+OU  = TechDept
+CN  = Client System
+
+[ client ]
+basicConstraints    = critical,CA:FALSE
+keyUsage            = digitalSignature, keyEncipherment, dataEncipherment
+extendedKeyUsage    = clientAuth

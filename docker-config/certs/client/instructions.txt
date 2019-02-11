@@ -1,0 +1,22 @@
+
+If created from remote server, download
+scp root@192.168.13.4:/root/certs/client/client.* .
+
+(To be done by client) If this should be installed in a browser:
+openssl pkcs12 -export -inkey client.key -in client.crt -out client.p12
+
+Test No Certificate (Should result error 400: 400 No required SSL certificate was sent):
+curl --insecure https://192.168.13.4
+
+Test Invalid Certificate (Should result error 400: 400 No required SSL certificate was sent):
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+	-subj "/C=PH/ST=NCR/L=Pasig/O=NuWorks Interactive Labs Inc./OU=Tech Dept./CN=Unsigned Cert" \
+	-keyout unsigned-cert.key -out unsigned-cert.crt
+curl --insecure --cert ./unsigned-cert.crt --key ./unsigned-cert.key https://192.168.13.4
+
+Test Successful Connection
+curl --insecure --cert ./client.crt --key ./client.key https://192.168.13.4
+
+Or Using PEM:
+cat client.crt client.key > client.pem
+curl --insecure --cert ./client.pem https://192.168.13.4
